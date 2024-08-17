@@ -1,5 +1,7 @@
 package dev.revere.webrequest;
 
+import java.io.Serial;
+
 /**
  * @author Remi
  * @project java-request-library
@@ -8,6 +10,9 @@ package dev.revere.webrequest;
  * Custom exception class for handling HTTP-related errors.
  */
 public class HttpException extends RuntimeException {
+
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     private final int statusCode;
 
@@ -41,5 +46,19 @@ public class HttpException extends RuntimeException {
      */
     public int getStatusCode() {
         return statusCode;
+    }
+
+    /**
+     * Returns a string representation of the exception.
+     *
+     * @return a string representation of the exception
+     */
+    @Override
+    public String toString() {
+        return "HttpException{" +
+                "statusCode=" + statusCode +
+                ", message=" + getMessage() +
+                ", cause=" + getCause() +
+                '}';
     }
 }
